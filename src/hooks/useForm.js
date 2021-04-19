@@ -8,7 +8,7 @@ export const useForm = () => {
         state: "",
         zip: "",
     };
-
+    const [showSuccessMessage, setShowSuccessMessage] = useState(true)
     const [values, setValues] = useState(initialValues);
 
     const handleChanges = e => {
@@ -18,12 +18,12 @@ export const useForm = () => {
         });
     };
 
-const clearForm = e => {
-    e.preventDefault();
-    setValues(initialValues)
-}
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setShowSuccessMessage(true);
+    };
 
-    return [values, handleChanges, clearForm];
+    return [values, handleChanges, handleSubmit, showSuccessMessage];
 };
 
 export default useForm;

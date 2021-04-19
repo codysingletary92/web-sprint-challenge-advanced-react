@@ -10,17 +10,12 @@ import { useForm } from "../hooks/useForm"
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
 
-  const [values, handleChanges] = useForm();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccessMessage(true);
-  };
+  const [values, handleChanges, handleSubmit, showSuccessMessage] = useForm();
 
   return (
-    <>
+    <div data-testid='testcontainer'>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
         <label>
@@ -79,7 +74,7 @@ const CheckoutForm = (props) => {
           </p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
